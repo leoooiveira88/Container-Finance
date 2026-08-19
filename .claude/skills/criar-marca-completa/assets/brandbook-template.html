@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{NOME_DA_MARCA}} — Manual de Marca</title>
+<!--
+  TEMPLATE DO MANUAL DE MARCA — skill criar-marca-completa
+
+  Como usar:
+  1. Troque as variaveis em :root pelas cores e fontes reais da marca.
+  2. Troque o <link> do Google Fonts pelas fontes escolhidas (ou remova, se usar fonte do sistema).
+  3. Preencha TODOS os {{PLACEHOLDERS}}. Nenhum pode sobreviver na entrega.
+  4. Apague as secoes que nao se aplicam a este negocio (ex.: tokens de codigo se nao ha produto digital).
+     Um manual com secao vazia ensina que da pra ignorar o manual.
+  5. Rode: python3 scripts/build_brandbook.py manual-marca.html --pdf manual-marca.pdf
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="{{URL_GOOGLE_FONTS}}" rel="stylesheet">
+<style>
+:root{
+  --marca:{{COR_PRIMARIA}};
+  --marca-escura:{{COR_PRIMARIA_ESCURA}};
+  --marca-clara:{{COR_PRIMARIA_CLARA}};
+  --acento:{{COR_ACENTO}};
+  --tinta:{{COR_TEXTO}};
+  --papel:{{COR_FUNDO}};
+  --superficie:#fff;
+  --borda:rgba(0,0,0,.12);
+  --suave:rgba(0,0,0,.55);
+  --display:{{FONTE_DISPLAY}},Georgia,serif;
+  --texto:{{FONTE_TEXTO}},system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --raio:{{RAIO_BORDA}};
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--papel);color:var(--tinta);font-family:var(--texto);font-size:16px;line-height:1.6}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:0;max-width:1240px;margin:0 auto}
+
+/* navegacao lateral */
+nav{position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;padding:40px 20px;border-right:1px solid var(--borda)}
+nav b{display:block;font-family:var(--display);font-size:19px;line-height:1.1;color:var(--marca);margin-bottom:20px}
+nav a{display:block;padding:6px 0;color:var(--suave);text-decoration:none;font-size:13px;border-bottom:1px solid transparent}
+nav a:hover{color:var(--marca);border-bottom-color:var(--marca)}
+
+main{padding:56px 48px 96px;min-width:0}
+section{padding:44px 0;border-top:1px solid var(--borda)}
+section:first-child{border-top:0;padding-top:0}
+h1{font-family:var(--display);font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.01em;color:var(--marca)}
+h2{font-family:var(--display);font-size:30px;line-height:1.15;color:var(--marca-escura);margin-bottom:6px}
+h3{font-size:15px;text-transform:uppercase;letter-spacing:.09em;color:var(--suave);margin:26px 0 10px}
+p{margin-bottom:14px;max-width:68ch}
+.lide{font-size:19px;line-height:1.5;color:var(--suave);max-width:60ch}
+.destaque{font-family:var(--display);font-size:26px;line-height:1.3;color:var(--marca-escura);
+  border-left:4px solid var(--acento);padding-left:18px;margin:22px 0;max-width:56ch}
+ul,ol{margin:0 0 14px 20px}li{margin-bottom:6px;max-width:66ch}
+
+/* capa */
+.capa{background:var(--marca-escura);color:#fff;border-radius:var(--raio);padding:64px 48px;margin-bottom:8px}
+.capa h1{color:#fff}
+.capa .lide{color:rgba(255,255,255,.82);margin-top:14px}
+.capa .selo{display:inline-block;background:var(--acento);color:var(--tinta);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:22px}
+
+/* blocos */
+.grade{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin:18px 0}
+.cartao{background:var(--superficie);border:1px solid var(--borda);border-radius:var(--raio);padding:20px}
+.cartao h4{font-size:14px;text-transform:uppercase;letter-spacing:.07em;color:var(--marca);margin-bottom:8px}
+
+/* cores */
+.cores{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin:18px 0}
+.cor{border:1px solid var(--borda);border-radius:var(--raio);overflow:hidden}
+.cor .amostra{height:96px}
+.cor .info{padding:12px 14px;font-size:12px;line-height:1.45}
+.cor .info b{display:block;font-size:13px;margin-bottom:2px}
+.cor .info code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--suave)}
+.proporcao{display:flex;height:40px;border-radius:var(--raio);overflow:hidden;margin:14px 0;font-size:11px;
+  font-weight:700;color:#fff;text-align:center;line-height:40px}
+
+/* tipografia */
+.escala>div{border-bottom:1px solid var(--borda);padding:14px 0;display:flex;align-items:baseline;gap:20px;flex-wrap:wrap}
+.escala .rotulo{flex:0 0 190px;font-size:12px;color:var(--suave);font-family:ui-monospace,Menlo,monospace}
+
+/* certo / errado */
+.par{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin:16px 0}
+.certo,.errado{border-radius:var(--raio);padding:16px 18px;font-size:15px;border:1px solid}
+.certo{border-color:#1c8b5a;background:#eef8f2}
+.errado{border-color:#c33;background:#fdeeee}
+.certo::before,.errado::before{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:6px}
+.certo::before{content:"Assim sim";color:#126b43}
+.errado::before{content:"Assim não";color:#a32020}
+
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--borda);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--suave)}
+.logos{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:18px 0}
+.logo-box{border:1px solid var(--borda);border-radius:var(--raio);padding:24px;text-align:center;background:var(--superficie)}
+.logo-box.escuro{background:var(--marca-escura)}
+.logo-box figcaption{font-size:12px;color:var(--suave);margin-top:12px}
+.logo-box.escuro figcaption{color:rgba(255,255,255,.7)}
+pre{background:var(--marca-escura);color:#f4f1f8;border-radius:var(--raio);padding:18px;overflow-x:auto;
+  font-family:ui-monospace,Menlo,monospace;font-size:13px;line-height:1.6;margin:14px 0}
+.rodape{margin-top:40px;padding-top:20px;border-top:1px solid var(--borda);font-size:13px;color:var(--suave)}
+
+@media (max-width:880px){
+  .layout{grid-template-columns:1fr}
+  nav{position:static;height:auto;border-right:0;border-bottom:1px solid var(--borda);
+    display:flex;flex-wrap:wrap;gap:12px;padding:20px}
+  nav b{width:100%;margin-bottom:8px}
+  main{padding:32px 20px 64px}
+}
+@media print{
+  nav{display:none}
+  .layout{display:block;max-width:none}
+  main{padding:0}
+  section{break-inside:avoid;page-break-inside:avoid;border-top:1px solid #ddd}
+  .capa{break-after:page;page-break-after:always}
+  body{font-size:11pt}
+  a{color:inherit;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<nav>
+  <b>{{NOME_DA_MARCA}}</b>
+  <a href="#essencia">1. Essência</a>
+  <a href="#nome">2. Nome e tagline</a>
+  <a href="#logo">3. Logo</a>
+  <a href="#cores">4. Cores</a>
+  <a href="#tipografia">5. Tipografia</a>
+  <a href="#formas">6. Formas e grid</a>
+  <a href="#voz">7. Tom de voz</a>
+  <a href="#mensagens">8. Mensagens-chave</a>
+  <a href="#aplicacoes">9. Aplicações</a>
+  <a href="#proximos">10. Próximos passos</a>
+</nav>
+
+<main>
+
+  <header class="capa">
+    <span class="selo">Manual de marca · {{MES_ANO}}</span>
+    <h1>{{NOME_DA_MARCA}}</h1>
+    <p class="lide">{{TAGLINE}}</p>
+  </header>
+
+  <section id="essencia">
+    <h2>1. Essência</h2>
+    <p class="lide">O que decide todo o resto. Em caso de dúvida sobre qualquer escolha de marca, a resposta está aqui.</p>
+
+    <h3>Propósito</h3>
+    <p>{{PROPOSITO}}</p>
+
+    <h3>Posicionamento</h3>
+    <p class="destaque">{{FRASE_DE_POSICIONAMENTO}}</p>
+
+    <h3>Para quem</h3>
+    <div class="grade">
+      <div class="cartao"><h4>Cliente</h4><p>{{CLIENTE}}</p></div>
+      <div class="cartao"><h4>Gatilho</h4><p>{{GATILHO_DE_COMPRA}}</p></div>
+      <div class="cartao"><h4>Alternativa real</h4><p>{{ALTERNATIVA_REAL}}</p></div>
+      <div class="cartao"><h4>Objeção e prova</h4><p>{{OBJECAO_E_PROVA}}</p></div>
+    </div>
+
+    <h3>Personalidade</h3>
+    <p><b>Arquétipo: {{ARQUETIPO}}.</b> {{EXPLICACAO_ARQUETIPO}}</p>
+
+    <h3>Pilares de mensagem</h3>
+    <table>
+      <tr><th>Pilar</th><th>O que sustenta</th><th>Prova</th></tr>
+      <tr><td>{{PILAR_1}}</td><td>{{PILAR_1_FRASE}}</td><td>{{PILAR_1_PROVA}}</td></tr>
+      <tr><td>{{PILAR_2}}</td><td>{{PILAR_2_FRASE}}</td><td>{{PILAR_2_PROVA}}</td></tr>
+      <tr><td>{{PILAR_3}}</td><td>{{PILAR_3_FRASE}}</td><td>{{PILAR_3_PROVA}}</td></tr>
+    </table>
+  </section>
+
+  <section id="nome">
+    <h2>2. Nome e tagline</h2>
+    <p>{{RATIONALE_DO_NOME}}</p>
+    <h3>Como escrever</h3>
+    <div class="par">
+      <div class="certo">{{GRAFIA_CORRETA}}</div>
+      <div class="errado">{{GRAFIA_INCORRETA}}</div>
+    </div>
+    <h3>Tagline</h3>
+    <p class="destaque">{{TAGLINE}}</p>
+    <p>{{QUANDO_USAR_TAGLINE}}</p>
+  </section>
+
+  <section id="logo">
+    <h2>3. Logo</h2>
+    <p>{{IDEIA_DO_SIMBOLO}}</p>
+    <div class="logos">
+      <figure class="logo-box">{{SVG_LOGO_PRINCIPAL}}<figcaption>Principal — uso padrão</figcaption></figure>
+      <figure class="logo-box">{{SVG_LOGO_VERTICAL}}<figcaption>Vertical — espaços quadrados</figcaption></figure>
+      <figure class="logo-box">{{SVG_SIMBOLO}}<figcaption>Símbolo — avatar, favicon</figcaption></figure>
+      <figure class="logo-box escuro">{{SVG_LOGO_NEGATIVO}}<figcaption>Negativa — fundo escuro</figcaption></figure>
+    </div>
+    <h3>Área de proteção e tamanho mínimo</h3>
+    <p>{{AREA_DE_PROTECAO}} Tamanho mínimo: {{TAMANHO_MINIMO}}.</p>
+    <h3>Usos incorretos</h3>
+    <ul>
+      <li>{{USO_INCORRETO_1}}</li>
+      <li>{{USO_INCORRETO_2}}</li>
+      <li>{{USO_INCORRETO_3}}</li>
+      <li>{{USO_INCORRETO_4}}</li>
+    </ul>
+  </section>
+
+  <section id="cores">
+    <h2>4. Cores</h2>
+    <p>Cada cor tem um papel. Quando o papel some, a marca some junto — principalmente a cor de acento, que só
+      significa "aja aqui" enquanto for rara.</p>
+    <div class="cores">
+      <div class="cor"><div class="amostra" style="background:var(--marca)"></div>
+        <div class="info"><b>Primária</b><code>{{COR_PRIMARIA}}</code><br>{{USO_PRIMARIA}}</div></div>
+      <div class="cor"><div class="amostra" style="background:var(--marca-escura)"></div>
+        <div class="info"><b>Primária escura</b><code>{{COR_PRIMARIA_ESCURA}}</code><br>{{USO_PRIMARIA_ESCURA}}</div></div>
+      <div class="cor"><div class="amostra" style="background:var(--marca-clara)"></div>
+        <div class="info"><b>Primária clara</b><code>{{COR_PRIMARIA_CLARA}}</code><br>{{USO_PRIMARIA_CLARA}}</div></div>
+      <div class="cor"><div class="amostra" style="background:var(--acento)"></div>
+        <div class="info"><b>Acento</b><code>{{COR_ACENTO}}</code><br>{{USO_ACENTO}}</div></div>
+      <div class="cor"><div class="amostra" style="background:var(--tinta)"></div>
+        <div class="info"><b>Tinta</b><code>{{COR_TEXTO}}</code><br>Texto e traços</div></div>
+      <div class="cor"><div class="amostra" style="background:var(--papel);border-bottom:1px solid var(--borda)"></div>
+        <div class="info"><b>Papel</b><code>{{COR_FUNDO}}</code><br>Fundo de página</div></div>
+    </div>
+
+    <h3>Proporção de uso</h3>
+    <div class="proporcao">
+      <div style="flex:6;background:var(--papel);color:var(--tinta)">60% neutro</div>
+      <div style="flex:3;background:var(--marca)">30% primária</div>
+      <div style="flex:1;background:var(--acento);color:var(--tinta)">10%</div>
+    </div>
+
+    <h3>Contraste (WCAG)</h3>
+    <table>
+      <tr><th>Combinação</th><th>Razão</th><th>Pode usar em</th></tr>
+      <tr><td>{{PAR_CONTRASTE_1}}</td><td>{{RAZAO_1}}</td><td>{{USO_CONTRASTE_1}}</td></tr>
+      <tr><td>{{PAR_CONTRASTE_2}}</td><td>{{RAZAO_2}}</td><td>{{USO_CONTRASTE_2}}</td></tr>
+      <tr><td>{{PAR_CONTRASTE_3}}</td><td>{{RAZAO_3}}</td><td>{{USO_CONTRASTE_3}}</td></tr>
+    </table>
+    <p><b>Nunca combine:</b> {{COMBINACAO_PROIBIDA}}</p>
+  </section>
+
+  <section id="tipografia">
+    <h2>5. Tipografia</h2>
+    <p>{{RATIONALE_TIPOGRAFIA}}</p>
+    <div class="escala">
+      <div><span class="rotulo">Display · {{FONTE_DISPLAY}}</span>
+        <span style="font-family:var(--display);font-size:44px;line-height:1.05">{{EXEMPLO_DISPLAY}}</span></div>
+      <div><span class="rotulo">H1 · 32/1.15 · 700</span>
+        <span style="font-family:var(--display);font-size:32px">{{EXEMPLO_H1}}</span></div>
+      <div><span class="rotulo">H2 · 24/1.2 · 600</span>
+        <span style="font-size:24px;font-weight:600">{{EXEMPLO_H2}}</span></div>
+      <div><span class="rotulo">Corpo · 16/1.55 · 400</span>
+        <span style="font-size:16px">{{EXEMPLO_CORPO}}</span></div>
+      <div><span class="rotulo">Apoio · 13/1.4 · 500</span>
+        <span style="font-size:13px;font-weight:500;color:var(--suave)">{{EXEMPLO_APOIO}}</span></div>
+      <div><span class="rotulo">Micro · 11 · 700 · caixa alta</span>
+        <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">{{EXEMPLO_MICRO}}</span></div>
+    </div>
+    <p>{{REGRA_TIPOGRAFICA}}</p>
+  </section>
+
+  <section id="formas">
+    <h2>6. Formas e grid</h2>
+    <div class="grade">
+      <div class="cartao"><h4>Raio de borda</h4><p>{{RAIO_BORDA}} — {{RATIONALE_RAIO}}</p></div>
+      <div class="cartao"><h4>Espaçamento</h4><p>Base {{ESPACAMENTO_BASE}}. Escala: {{ESCALA_ESPACAMENTO}}</p></div>
+      <div class="cartao"><h4>Elevação</h4><p>{{SOMBRA}}</p></div>
+      <div class="cartao"><h4>Imagem</h4><p>{{DIRECAO_FOTOGRAFICA}}</p></div>
+    </div>
+    <h3>Tokens para código</h3>
+    <pre>{{TOKENS_CSS}}</pre>
+  </section>
+
+  <section id="voz">
+    <h2>7. Tom de voz</h2>
+    <p class="lide">{{RESUMO_DA_VOZ}}</p>
+
+    <h3>{{ATRIBUTO_1}}</h3>
+    <p>{{ATRIBUTO_1_DEFINICAO}}</p>
+    <div class="par"><div class="certo">{{ATRIBUTO_1_CERTO}}</div><div class="errado">{{ATRIBUTO_1_ERRADO}}</div></div>
+
+    <h3>{{ATRIBUTO_2}}</h3>
+    <p>{{ATRIBUTO_2_DEFINICAO}}</p>
+    <div class="par"><div class="certo">{{ATRIBUTO_2_CERTO}}</div><div class="errado">{{ATRIBUTO_2_ERRADO}}</div></div>
+
+    <h3>{{ATRIBUTO_3}}</h3>
+    <p>{{ATRIBUTO_3_DEFINICAO}}</p>
+    <div class="par"><div class="certo">{{ATRIBUTO_3_CERTO}}</div><div class="errado">{{ATRIBUTO_3_ERRADO}}</div></div>
+
+    <h3>Regras de escrita</h3>
+    <ul>
+      <li>{{REGRA_1}}</li><li>{{REGRA_2}}</li><li>{{REGRA_3}}</li><li>{{REGRA_4}}</li>
+    </ul>
+
+    <h3>Glossário</h3>
+    <table>
+      <tr><th>Diga</th><th>Não diga</th><th>Por quê</th></tr>
+      <tr><td>{{DIGA_1}}</td><td>{{NAO_DIGA_1}}</td><td>{{MOTIVO_1}}</td></tr>
+      <tr><td>{{DIGA_2}}</td><td>{{NAO_DIGA_2}}</td><td>{{MOTIVO_2}}</td></tr>
+      <tr><td>{{DIGA_3}}</td><td>{{NAO_DIGA_3}}</td><td>{{MOTIVO_3}}</td></tr>
+    </table>
+  </section>
+
+  <section id="mensagens">
+    <h2>8. Mensagens-chave</h2>
+    <p>Textos prontos para copiar. Não são modelos para preencher — são as frases oficiais da marca.</p>
+    <div class="grade">
+      <div class="cartao"><h4>Bio / uma linha</h4><p>{{BIO_UMA_LINHA}}</p></div>
+      <div class="cartao"><h4>Sobre / um parágrafo</h4><p>{{SOBRE_UM_PARAGRAFO}}</p></div>
+      <div class="cartao"><h4>Resposta à objeção</h4><p>{{RESPOSTA_OBJECAO}}</p></div>
+      <div class="cartao"><h4>Chamada padrão</h4><p>{{CTA_PADRAO}}</p></div>
+      <div class="cartao"><h4>Abertura de atendimento</h4><p>{{ABERTURA_ATENDIMENTO}}</p></div>
+      <div class="cartao"><h4>Fechamento</h4><p>{{FECHAMENTO_ATENDIMENTO}}</p></div>
+    </div>
+  </section>
+
+  <section id="aplicacoes">
+    <h2>9. Aplicações</h2>
+    <p>{{PRIORIDADE_DE_CANAL}}</p>
+    <table>
+      <tr><th>Peça</th><th>Formato</th><th>Regra principal</th></tr>
+      <tr><td>{{PECA_1}}</td><td>{{FORMATO_1}}</td><td>{{REGRA_PECA_1}}</td></tr>
+      <tr><td>{{PECA_2}}</td><td>{{FORMATO_2}}</td><td>{{REGRA_PECA_2}}</td></tr>
+      <tr><td>{{PECA_3}}</td><td>{{FORMATO_3}}</td><td>{{REGRA_PECA_3}}</td></tr>
+      <tr><td>{{PECA_4}}</td><td>{{FORMATO_4}}</td><td>{{REGRA_PECA_4}}</td></tr>
+      <tr><td>{{PECA_5}}</td><td>{{FORMATO_5}}</td><td>{{REGRA_PECA_5}}</td></tr>
+    </table>
+  </section>
+
+  <section id="proximos">
+    <h2>10. Próximos passos</h2>
+    <ul>
+      <li>{{PROXIMO_1}}</li><li>{{PROXIMO_2}}</li><li>{{PROXIMO_3}}</li><li>{{PROXIMO_4}}</li>
+    </ul>
+    <p class="rodape">{{NOME_DA_MARCA}} · Manual de marca · {{MES_ANO}} · versão {{VERSAO}}.
+      Registro de marca e licença de fontes precisam de confirmação com profissional habilitado.</p>
+  </section>
+
+</main>
+</div>
+</body>
+</html>
