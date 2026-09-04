@@ -121,15 +121,34 @@ Agora aprofunde. Trabalhe em paralelo e sem pedir aprovação a cada peça — o
 | Verbal | Tom de voz com pares certo/errado, glossário, mensagens-chave | `references/verbal.md` |
 | Aplicações | Kit mínimo priorizado pelo canal principal | `references/aplicacoes.md` |
 
-Duas verificações obrigatórias antes de montar o manual, porque são erros que só aparecem depois de impresso:
+Quatro verificações obrigatórias antes de montar o manual, porque são os erros que só aparecem depois de
+impresso — ou depois de um advogado ligar.
+
+**1. Colisão de mercado, antes de apresentar qualquer nome.** Pesquise cada candidato na web com o setor
+junto ("NOME software gestão", "NOME plataforma Brasil") e descarte antes de mostrar. Isso não é
+formalidade: em português, quase toda palavra curta e bonita do território de instrumentos e navegação já
+tem dono no mercado de TI. Numa rodada real caíram Prumo, Aprumo, Mirante, Compasso, Leme, Sextante,
+Lastro, Nônio, Paralaxe e Azimute — e um deles vendia literalmente o mesmo produto. Reporte com o link, e
+diga que registro é assunto de profissional de propriedade industrial.
+
+**2. Contraste de toda a paleta**, inclusive a herdada:
 
 ```bash
-# contraste WCAG de todos os pares da paleta — evita entregar uma marca ilegível
 python3 scripts/paleta_check.py "#752F8A" "#FFCE01" "#1A1A1A" "#FFFFFF"
 ```
 
-E abra o SVG do logo reduzido a 32px mentalmente: se o símbolo vira uma mancha nesse tamanho, ele falhou no lugar onde
-mais vai aparecer (favicon, perfil do Instagram, etiqueta). Simplifique até funcionar pequeno.
+Se a marca herda paleta de uma marca-mãe, teste os acentos **nos dois fundos**. Acento institucional
+costuma ter sido desenhado para fundo escuro e reprovar sobre branco. Quando acontecer, derive um par
+claro/escuro para cada acento e trate como regra fixa do manual — não como observação de acessibilidade.
+
+**3. O símbolo aos 16px, renderizado de verdade — não imaginado.** Se vira mancha, falhou onde mais
+aparece: favicon, avatar, canto de slide. Símbolo que precisa de elementos finos ganha duas densidades
+oficiais (completo acima de 32px, reduzido abaixo), e a reduzida ainda tem que dizer alguma coisa sozinha,
+não virar um retângulo neutro.
+
+**4. Símbolo assimétrico exige regra de alinhamento óptico com valores fixos.** Calcule o centro óptico
+pela massa visual, não pela caixa delimitadora, e escreva no manual como `transform="translate(x, y)"`.
+Sem número, cada pessoa centraliza de um jeito e a marca fica torta em metade das aplicações.
 
 ### Fase 4 — Manual de marca
 
@@ -150,6 +169,10 @@ Depois de preencher:
 python3 scripts/build_brandbook.py manual-marca.html --pdf manual-marca.pdf
 ```
 
+Todo HTML que o usuário vai abrir fora do navegador de artifacts precisa de `<meta charset="utf-8">` na
+primeira linha. Sem isso o arquivo abre com acentuação quebrada na máquina dele, e o manual inteiro perde
+credibilidade na primeira frase.
+
 Publique o HTML como Artifact (link privado que o usuário compartilha quando quiser) **e** entregue o PDF com
 `SendUserFile`. Os dois formatos servem a coisas diferentes: o HTML é a referência viva que se atualiza, o PDF é o que
 se manda para o gráfico, para o fornecedor de embalagem e para o freelancer.
@@ -159,6 +182,16 @@ se manda para o gráfico, para o fornecedor de embalagem e para o freelancer.
 Um manual só prova valor quando vira algo publicado. Feche entregando 2 ou 3 peças reais e imediatas do canal
 principal — o post de anúncio, a bio do Instagram, a etiqueta, a assinatura de e-mail — já com a marca aplicada. Veja
 `references/aplicacoes.md` para o kit mínimo por tipo de negócio.
+
+Gere também os arquivos finais, que é o que permite o time trabalhar sem pedir nada:
+
+```bash
+python3 scripts/gerar_arquivos.py --svg icone-app.svg --tamanhos 512 180 48 32 16 --ico --saida png/
+```
+
+**O ícone de aplicativo não é o símbolo em fundo transparente.** Símbolo escuro vazado some numa aba de
+navegador com tema escuro. O ícone é ladrilho cheio: fundo sólido com a forma em cor clara. Entregue os
+dois — transparente para documento, ladrilho para favicon e avatar.
 
 Termine com uma lista curta e concreta do que ainda depende de terceiros (registro no INPI, compra da fonte comercial,
 registro do domínio) — sem transformar isso em consultoria jurídica: aponte o caminho e diga que é preciso confirmar
@@ -187,3 +220,4 @@ patrimônio da marca sem perceber.
 - `assets/brandbook-template.html` — template do manual (HTML único, com placeholders)
 - `scripts/paleta_check.py` — matriz de contraste WCAG da paleta
 - `scripts/build_brandbook.py` — valida placeholders e exporta o HTML para PDF
+- `scripts/gerar_arquivos.py` — PNGs em tamanho exato e favicon.ico a partir do SVG

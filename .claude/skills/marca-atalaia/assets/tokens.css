@@ -1,0 +1,39 @@
+/* Atalaia — tokens de marca. Copie para o repositório do produto ANTES de construir telas.
+   Regra que não se negocia: cada acento tem par claro/escuro. Usar a versão errada para o
+   fundo reprova em contraste — Fogo dá 2,49:1 sobre branco e Lima dá 1,61:1. */
+:root{
+  /* superfícies */
+  --at-noite:#1B1E24;
+  --at-papel:#F4F6F9;
+  --at-superficie:#FFFFFF;
+
+  /* marca */
+  --at-axon:#193B68;
+  --at-synapse:#4A96D2;
+  --at-tinta:#16181C;
+
+  /* acentos — sempre em par */
+  --at-acento-em-escuro:#F2893D;    /* 6,70:1 sobre Noite */
+  --at-acento-em-claro:#B4560E;     /* 4,91:1 sobre branco */
+  --at-positivo-em-escuro:#C8D541;  /* 10,38:1 sobre Noite */
+  --at-positivo-em-claro:#5F6B0F;   /* 5,84:1 sobre branco */
+
+  /* semânticas */
+  --at-critico:#C4362F;
+  --at-atencao:#B4560E;
+  --at-ok:#5F6B0F;
+
+  /* tipografia */
+  --at-display:'Spectral',Georgia,serif;
+  --at-texto:'IBM Plex Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --at-dado:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+
+  /* forma */
+  --at-raio:6px;
+  --at-raio-chip:3px;
+  --at-espaco:8px;
+  --at-elevacao:0 1px 3px rgba(22,24,28,.12);
+}
+
+/* Todo número em coluna, tabela ou comparação usa isto. */
+.at-dado{font-family:var(--at-dado);font-variant-numeric:tabular-nums}

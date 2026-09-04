@@ -26,9 +26,17 @@ Todo candidato passa por estes filtros. Reprovar em um dos três primeiros é el
 
 1. **Telefone** — dá para dizer em voz alta e a pessoa escrever certo sem soletrar? Nome que exige "com H no meio"
    morre no boca a boca, que é justamente o canal mais barato que existe.
-2. **Disponibilidade** — busque no Google, no Instagram e em registro de marcas (no Brasil, a busca de marcas do
-   INPI). Verifique também se o domínio `.com.br` está livre. Reporte o que encontrou de forma factual e diga que a
-   confirmação legal precisa de um profissional de propriedade industrial — você aponta o risco, não dá parecer.
+2. **Disponibilidade** — busque cada candidato **com o setor junto** ("NOME software gestão", "NOME
+   plataforma Brasil", "NOME consultoria"), mais Instagram e domínio `.com.br`. Faça isso *antes* de
+   apresentar a lista: nome bonito que cai depois queima a rodada inteira. Reporte de forma factual, com o
+   link, e diga que a confirmação legal precisa de profissional de propriedade industrial — você aponta o
+   risco, não dá parecer.
+
+   Espere alta taxa de descarte. Em português, o território de instrumentos e navegação — justamente o
+   mais fértil para marcas de precisão e antecipação — está quase todo ocupado no mercado brasileiro de
+   TI. Numa rodada real caíram dez nomes seguidos por colisão direta, incluindo um que vendia o mesmo
+   produto com a mesma promessa. Não é azar: é o que acontece com toda palavra curta, sonora e
+   transparente.
 3. **Colisão semântica** — o nome quer dizer alguma coisa ruim em outra língua, gíria regional ou contexto sexual?
    Cheque antes de o usuário descobrir por um comentário.
 4. **Espaço visual** — cabe em um avatar redondo de 40px? Nomes com mais de 12 caracteres ficam ilegíveis no perfil e

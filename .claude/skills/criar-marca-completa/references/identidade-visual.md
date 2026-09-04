@@ -33,6 +33,12 @@ Alvos: 4.5:1 para texto corrido, 3:1 para texto grande (24px+) e para bordas/íc
 atinge 4.5:1 com branco, ela **não serve para texto** — declare isso no manual em vez de esperar que alguém descubra.
 Registre também qual par usar sobre fundo escuro; marca sem versão escura quebra no primeiro app ou story.
 
+**Paleta herdada de marca-mãe: teste os acentos nos dois fundos.** Acento institucional costuma ter sido
+desenhado para fundo escuro e reprovar sobre branco — é comum um laranja de marca dar 2,5:1 e um lima dar
+1,6:1 no branco, passando com folga sobre o escuro. Quando o produto tem interface em tema claro e escuro,
+cada acento ganha **duas versões oficiais** e o manual diz qual usar em qual fundo. É regra de marca, não
+nota de acessibilidade: sem ela, cada tela resolve de um jeito.
+
 ## Tipografia
 
 Duas famílias resolvem quase tudo: uma de **display** (títulos, nome, números grandes) e uma de **texto** (corrido,
@@ -82,6 +88,14 @@ Construa em SVG, à mão, no editor. Não gere imagem raster para logo: logo pre
   barata — e é exatamente onde o logo de um negócio pequeno mais aparece.
 - Evite texto dentro do símbolo, e evite o clichê literal da categoria (garfo e faca para comida, engrenagem para
   tecnologia, folha para sustentável). O clichê torna a marca substituível.
+
+**O ícone de aplicativo é outra peça.** Símbolo escuro em fundo transparente desaparece numa aba de
+navegador com tema escuro. O ícone de app e o favicon são **ladrilho cheio**: fundo sólido com a forma em
+cor clara. Entregue os dois — transparente para documento, ladrilho para favicon e avatar.
+
+**Símbolo assimétrico precisa de centro óptico com número.** Calcule pela massa visual (uma forma sólida
+grande pesa muito mais que traços finos), não pela caixa delimitadora, e escreva no manual como
+`transform="translate(x, y)"` sobre o viewBox. Sem valor fixo, cada aplicação centraliza de um jeito.
 
 **Regras de uso** que precisam estar no manual, sempre com exemplo errado ao lado do certo:
 - Área de proteção (defina em função de um elemento do próprio logo, ex.: "altura da letra inicial")
