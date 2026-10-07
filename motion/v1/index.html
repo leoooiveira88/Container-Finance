@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>V1 · Você era maior que a diferença</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{--red:#E82028;--orange:#CF4A24;--blue:#546BE3;--navy:#4955AF;--yellow:#F2C740;--green:#52943B;--cream:#F5F1E8;--ink:#1B1B24}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--cream)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--cream)}
+.scene{position:absolute;inset:0;visibility:hidden;overflow:hidden}
+.a{position:absolute}
+.d{font-family:'Archivo';font-stretch:125%;font-weight:900;line-height:.9;letter-spacing:-.01em;white-space:nowrap}
+.u{font-family:'Sora';font-weight:700;line-height:1.2}
+.slab{display:inline-block;padding:10px 40px 18px}
+.m{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+.m>span{display:inline-block}
+.stripe{display:flex;height:100%}
+.stripe i{flex:1}
+.stripe i:nth-child(1){background:var(--green)}.stripe i:nth-child(2){background:var(--orange)}.stripe i:nth-child(3){background:var(--blue)}.stripe i:nth-child(4){background:var(--yellow)}
+.dot{position:absolute;width:46px;height:46px;border-radius:50%}
+#wipe{position:absolute;left:-660px;top:-340px;width:2400px;height:2600px;transform-origin:50% 50%;visibility:hidden;z-index:50}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- S1 -->
+<section class="scene" id="s1" style="background:var(--red);color:#fff">
+  <div class="a d" id="c1" style="left:60px;top:470px;font-size:330px;line-height:.86" data-fit="950"></div>
+  <div class="a" id="c1bar" style="left:72px;top:930px;height:18px;width:936px;background:var(--yellow);transform-origin:0 50%"></div>
+  <div class="a u" id="k1" style="left:72px;top:990px;font-size:76px;white-space:nowrap" data-fit="936">pessoas não foram votar</div>
+  <div class="a u" id="k1b" style="left:72px;top:1085px;font-size:76px;white-space:nowrap" data-fit="936">no domingo, 4 de outubro.</div>
+  <div class="a u" id="src1" style="left:72px;bottom:110px;font-size:30px;font-weight:600;opacity:.85">Fonte: TSE · 1º turno 2026</div>
+</section>
+
+<!-- S2 -->
+<section class="scene" id="s2" style="background:var(--cream);color:var(--ink)">
+  <div class="a u" id="t2" style="left:72px;top:300px;font-size:64px;width:936px">A diferença entre<br>o 1º e o 2º colocados</div>
+  <div class="a" id="bar1" style="left:72px;top:640px;height:110px;width:936px;background:var(--navy);transform-origin:0 50%"></div>
+  <div class="a u" id="lb1" style="left:72px;top:768px;font-size:40px;font-weight:600">1º · 56.104.503 votos</div>
+  <div class="a" id="bar2" style="left:72px;top:860px;height:110px;width:899px;background:var(--blue);transform-origin:0 50%"></div>
+  <div class="a u" id="lb2" style="left:72px;top:988px;font-size:40px;font-weight:600">2º · 53.879.538 votos</div>
+  <div class="a" id="gap" style="left:971px;top:610px;width:37px;height:390px;background:var(--red);transform-origin:50% 0"></div>
+  <div class="a d" id="n2" style="left:72px;top:1170px;font-size:190px;color:var(--red)" data-fit="936">2.224.965</div>
+  <div class="a u" id="k2" style="left:72px;top:1370px;font-size:60px">votos de diferença.</div>
+  <div class="a u" id="src2" style="left:72px;bottom:110px;font-size:30px;font-weight:600;opacity:.7">Fonte: TSE, 100% das urnas (via Reuters)</div>
+</section>
+
+<!-- S3 -->
+<section class="scene" id="s3" style="background:var(--cream);color:var(--ink)">
+  <div class="a u" id="t3" style="left:72px;top:210px;font-size:52px">1 ponto = 100 mil pessoas</div>
+  <div id="grid"></div>
+  <div class="a u" id="l3a" style="left:72px;top:1730px;font-size:46px;color:var(--red)">● diferença: 22 pontos</div>
+  <div class="a u" id="l3b" style="left:72px;top:1800px;font-size:46px;color:var(--blue)">● ficou em casa: 335 pontos</div>
+</section>
+
+<!-- S4 -->
+<section class="scene" id="s4" style="background:var(--yellow);color:var(--ink)">
+  <div class="a" id="slab4" style="left:70px;top:520px;transform-origin:50% 50%"><span class="d slab" style="background:var(--red);color:#fff;font-size:330px;padding:30px 60px 50px">15×</span></div>
+  <div class="a u" id="w4" style="left:72px;top:1220px;font-size:70px;width:936px;line-height:1.18"></div>
+  <div class="a u" id="src4" style="left:72px;bottom:110px;font-size:32px;font-weight:600;opacity:.8">33.469.244 ÷ 2.224.965 = 15,04</div>
+</section>
+
+<!-- S5 -->
+<section class="scene" id="s5" style="background:var(--cream);color:var(--ink)">
+  <div class="a d" id="la" style="left:72px;top:380px;font-size:124px;width:936px;white-space:normal;line-height:1"></div>
+  <div class="a d" id="lb" style="left:72px;top:930px;font-size:124px;width:936px;white-space:normal;line-height:1"></div>
+  <div class="a" id="st5" style="left:0;top:1720px;width:1080px;height:40px;transform-origin:0 50%"><div class="stripe"><i></i><i></i><i></i><i></i></div></div>
+</section>
+
+<!-- S6 -->
+<section class="scene" id="s6" style="background:var(--blue);color:#fff;perspective:1600px">
+  <div class="a d" id="n25" style="left:56px;top:250px;font-size:520px;transform-origin:50% 0">25</div>
+  <div class="a d" id="out" style="left:56px;top:700px;font-size:400px;color:var(--yellow)" data-fit="950">OUT</div>
+  <div class="a u" id="dom" style="left:72px;top:1240px;font-size:66px">domingo · 2º turno</div>
+  <div class="a u" id="hor" style="left:72px;top:1335px;font-size:52px;font-weight:600">8h às 17h, horário de Brasília</div>
+  <div class="a" id="st6" style="left:72px;top:1470px;width:936px;height:22px;background:var(--yellow);transform-origin:0 50%"></div>
+  <div class="a d" id="dec" style="left:72px;top:1570px;font-size:92px;width:936px;white-space:normal;line-height:1;color:var(--yellow)"></div>
+</section>
+
+<!-- S7 -->
+<section class="scene" id="s7" style="background:var(--cream);color:var(--ink)">
+  <div class="a u" id="vv" style="left:72px;top:250px;font-size:80px">Vai votar.</div>
+  <div class="a" id="sVote" style="left:40px;top:600px"><span class="d slab" style="background:var(--blue);color:#fff;font-size:150px">VOTE</span></div>
+  <div class="a" id="sLula" style="left:60px;top:800px"><span class="d slab" style="background:var(--red);color:#fff;font-size:236px;padding:20px 50px 40px">LULA</span></div>
+  <div class="a" id="s13" style="left:560px;top:1150px"><span class="d slab" style="background:var(--yellow);color:var(--ink);font-size:260px;padding:20px 50px 36px">13</span></div>
+  <div class="a u" id="dt7" style="left:72px;top:1480px;font-size:62px">25 OUT · 2º TURNO</div>
+  <div class="a u" id="ft1" style="left:72px;bottom:150px;font-size:30px;font-weight:600;opacity:.75">Conteúdo independente de apoiador</div>
+  <div class="a u" id="ft2" style="left:72px;bottom:100px;font-size:26px;font-weight:600;opacity:.6">Fontes: TSE via Agência Brasil e Reuters</div>
+  <div class="a" id="st7" style="left:0;bottom:0;width:1080px;height:40px;transform-origin:0 50%"><div class="stripe"><i></i><i></i><i></i><i></i></div></div>
+</section>
+
+<div id="wipe"></div>
+</div>
+
+<script>
+// ===== Render contract: frame = pure function of t. No transitions/timers/rAF. =====
+const DUR = 60, FPS = 30;
+const b = n => 0.3 + 0.5 * n;                 // beat grid: 120 BPM, offset 0.3s
+const clamp = (x, a = 0, c = 1) => Math.min(c, Math.max(a, x));
+const pr = (t, s, d) => clamp((t - s) / d);
+const eOut = p => 1 - Math.pow(1 - p, 4);
+const eBack = p => { const c1 = 1.9, c3 = c1 + 1; return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2); };
+const eIO = p => p < .5 ? 8 * p ** 4 : 1 - Math.pow(-2 * p + 2, 4) / 2;
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const R = mulberry32(13); const NOISE = Array.from({length: 4096}, () => R());
+const nz = (i) => NOISE[((i % 4096) + 4096) % 4096];
+const $ = id => document.getElementById(id);
+const fmt = n => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+const SCENES = [
+  {id:'s1', s:0,     bg:'#E82028'},
+  {id:'s2', s:b(6),  bg:'#F5F1E8'},
+  {id:'s3', s:b(18), bg:'#F5F1E8'},
+  {id:'s4', s:b(33), bg:'#F2C740'},
+  {id:'s5', s:b(47), bg:'#F5F1E8'},
+  {id:'s6', s:b(71), bg:'#546BE3'},
+  {id:'s7', s:b(95), bg:'#F5F1E8'},
+];
+
+// ---- static setup (layout only; no per-frame state) ----
+const COUNTER = '33.469.244';
+$('c1').innerHTML = [...COUNTER].map((ch,i)=>`<span class="m"><span id="c1d${i}">${ch}</span></span>${i===5?'<br>':''}`).join('');
+const wordsHTML = (el, text, pfx) => { el.innerHTML = text.split(' ').map((w,i)=>`<span class="m"><span id="${pfx}${i}">${w}</span></span>`).join(' '); return text.split(' ').length; };
+const W4 = wordsHTML($('w4'), 'maior que a diferença que decidiu o 1º turno.', 'w4_');
+const LA = wordsHTML($('la'), 'Não precisa amar ninguém.', 'la_');
+const LB = wordsHTML($('lb'), 'Precisa não deixar escolherem por você.', 'lb_');
+const DEC = wordsHTML($('dec'), 'A decisão pode ser sua.', 'dc_');
+// dots: 22 red (gap) + 335 blue (abstention), 1 dot = 100k
+const grid = $('grid'); const DOTS = 357, COLS = 16, DS = 58, GX = 82, GY = 330;
+for (let i = 0; i < DOTS; i++) { const d = document.createElement('div'); d.className = 'dot'; d.id = 'dt' + i;
+  d.style.left = (GX + (i % COLS) * DS) + 'px'; d.style.top = (GY + Math.floor(i / COLS) * DS) + 'px';
+  d.style.background = i < 22 ? '#E82028' : '#546BE3'; grid.appendChild(d); }
+function fit(){ document.querySelectorAll('[data-fit]').forEach(el => { const max = +el.dataset.fit; let fs = parseFloat(el.style.fontSize);
+  while (el.scrollWidth > max && fs > 20) { fs -= 2; el.style.fontSize = fs + 'px'; } }); }
+
+// ---- helpers applied each frame ----
+const vis = (el, on) => el.style.visibility = on ? 'visible' : 'hidden';
+function reveal(id, t, s, d = .45){ const el = $(id); const p = eOut(pr(t, s, d)); vis(el, t >= s);
+  el.style.clipPath = `inset(-20% ${100 - p * 100}% -20% 0)`; el.style.transform = `translateX(${(1 - p) * -30}px)`; }
+function rise(id, t, s, d = .32){ const el = $(id); const p = eOut(pr(t, s, d)); vis(el, t >= s); el.style.transform = `translateY(${(1 - p) * 110}%)`; }
+function slam(id, t, s, rot = -6, d = .26){ const el = $(id); const p = pr(t, s, d); vis(el, t >= s);
+  const k = eBack(p); el.style.transform = `rotate(${rot + (1 - k) * -10}deg) scale(${1.45 - .45 * k})`; }
+function grow(id, t, s, d = .5, axis = 'X'){ const el = $(id); const p = eOut(pr(t, s, d)); vis(el, t >= s); el.style.transform = `scale${axis}(${p})`; }
+
+function seek(t){
+  t = clamp(t, 0, DUR - 1e-6);
+  // active scene
+  let cur = 0; SCENES.forEach((sc, i) => { if (t >= sc.s) cur = i; });
+  SCENES.forEach((sc, i) => vis($(sc.id), i === cur));
+  // wipe at each boundary (diagonal -6deg panel, color of next scene)
+  const w = $('wipe'); vis(w, false);
+  for (let i = 1; i < SCENES.length; i++) { const T = SCENES[i].s, p = pr(t, T - .22, .44);
+    if (p > 0 && p < 1) { vis(w, true); w.style.background = SCENES[i].bg; w.style.transform = `rotate(-6deg) translateX(${(1 - 2 * eIO(p)) * 2500}px)`; } }
+
+  // S1 — counter rolls, lands per digit
+  [...COUNTER].forEach((ch, i) => { const el = $('c1d' + i); const land = .2 + i * .085;
+    if (ch === '.') { el.textContent = '.'; el.style.transform = ''; return; }
+    if (t < land) { el.textContent = Math.floor(nz(i * 131 + Math.floor(t * 30)) * 10); el.style.transform = `translateY(${(nz(i * 7 + Math.floor(t * 30)) - .5) * 30}px)`; }
+    else { el.textContent = ch; const p = eBack(pr(t, land, .2)); el.style.transform = `translateY(${(1 - p) * -60}px)`; } });
+  grow('c1bar', t, b(5), .45); reveal('k1', t, b(2)); reveal('k1b', t, b(3)); reveal('src1', t, b(4));
+
+  // S2 — bars and gap
+  reveal('t2', t, b(7)); grow('bar1', t, b(8), .6); reveal('lb1', t, b(8) + .2); grow('bar2', t, b(9), .6); reveal('lb2', t, b(9) + .2);
+  grow('gap', t, b(10), .35, 'Y');
+  const gp = pr(t, b(16), .3); $('gap').style.transform += ` scaleX(${1 + Math.sin(gp * Math.PI) * .6})`;
+  const np = eOut(pr(t, b(11), 1.0)); vis($('n2'), t >= b(11)); $('n2').textContent = fmt(2224965 * np);
+  reveal('k2', t, b(13)); reveal('src2', t, b(14));
+
+  // S3 — dot grid
+  reveal('t3', t, b(18) + .1);
+  for (let i = 0; i < DOTS; i++) { const el = $('dt' + i); const s = i < 22 ? b(19) + i * .035 : b(22) + (i - 22) * .0075;
+    let k = eBack(pr(t, s, .22)); if (i < 22) k *= 1 + Math.sin(pr(t, b(30), .5) * Math.PI) * .3;
+    vis(el, t >= s); el.style.transform = `scale(${k})`; }
+  reveal('l3a', t, b(21)); reveal('l3b', t, b(25));
+
+  // S4 — 15x slab with seeded shake
+  { const el = $('slab4'); const s = b(34); const p = pr(t, s, .4); vis(el, t >= s); const k = eBack(p);
+    const sh = pr(t, s + .3, .45); const amp = sh > 0 && sh < 1 ? (1 - sh) * 16 : 0; const f = Math.floor(t * 60);
+    const nudge = Math.sin(pr(t, b(44), .4) * Math.PI) * 3;
+    el.style.transform = `translate(${(nz(f) - .5) * amp}px,${(nz(f + 999) - .5) * amp}px) rotate(${-6 + (1 - k) * -20 + nudge}deg) scale(${1.6 - .6 * k})`; }
+  for (let i = 0; i < W4; i++) rise('w4_' + i, t, b(36) + i * .25);
+  reveal('src4', t, b(41));
+
+  // S5 — word slams on beats
+  for (let i = 0; i < LA; i++) { rise('la_' + i, t, b(48 + i), .22); $('la_' + i).style.color = t >= b(67) ? '#b9b2a3' : '#1B1B24'; }
+  for (let i = 0; i < LB; i++) { rise('lb_' + i, t, b(54 + i), .22); $('lb_' + i).style.color = (i >= 4 && t >= b(61)) ? '#E82028' : '#1B1B24'; }
+  grow('st5', t, b(64), .6);
+
+  // S6 — calendar flip
+  { const el = $('n25'); const s = b(72); const p = eBack(pr(t, s, .45)); vis(el, t >= s);
+    const bo = Math.sin(pr(t, b(92), .4) * Math.PI) * .08; el.style.transform = `rotateX(${(1 - p) * -95}deg) scale(${1 + bo})`; }
+  { const el = $('out'); const s = b(73); const p = eOut(pr(t, s, .4)); vis(el, t >= s); el.style.transform = `translateX(${(1 - p) * 1100}px)`; }
+  reveal('dom', t, b(76)); reveal('hor', t, b(79)); grow('st6', t, b(82), .6);
+  for (let i = 0; i < DEC; i++) rise('dc_' + i, t, b(85 + i), .22);
+
+  // S7 — signature
+  reveal('vv', t, b(96));
+  slam('sVote', t, b(97), -6); slam('sLula', t, b(98), -6); slam('s13', t, b(99), -6);
+  const fl = t > b(104) ? t - b(104) : 0;
+  [['sVote', 0], ['sLula', 1.7], ['s13', 3.1]].forEach(([id, ph]) => { if (fl > 0) $(id).style.transform += ` translateY(${Math.sin(fl * 1.6 + ph) * 7}px)`; });
+  [b(109), b(114)].forEach(s => { const p = pr(t, s, .35); if (p > 0 && p < 1) $('s13').style.transform += ` scale(${1 + Math.sin(p * Math.PI) * .12})`; });
+  reveal('dt7', t, b(101)); grow('st7', t, b(102), .7); reveal('ft1', t, b(103)); reveal('ft2', t, b(104));
+}
+window.seek = seek; window.DUR = DUR; window.FPS = FPS;
+window.ready = document.fonts.ready.then(() => { fit(); seek(0); return true; });
+</script>
+</body>
+</html>
