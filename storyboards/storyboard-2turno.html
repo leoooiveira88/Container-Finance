@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Storyboard 2º Turno</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800;125,900&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E82028; --orange:#CF4A24; --blue:#546BE3; --navy:#4955AF;
+  --yellow:#F2C740; --green:#52943B; --dgreen:#1C861D;
+  --cream:#F5F1E8; --ink:#1B1B24; --muted:#5d5d6b; --line:#ddd6c6; --paper:#fffdf8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:Sora,system-ui,sans-serif;font-size:15px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 80px}
+.stripe{display:flex;height:10px;border-radius:6px;overflow:hidden}
+.stripe i{flex:1}.stripe i:nth-child(1){background:var(--green)}.stripe i:nth-child(2){background:var(--orange)}.stripe i:nth-child(3){background:var(--blue)}.stripe i:nth-child(4){background:var(--yellow)}
+h1{font-family:Archivo;font-stretch:125%;font-weight:900;font-size:clamp(30px,6vw,56px);line-height:.95;margin:22px 0 10px;letter-spacing:-.01em}
+h2{font-family:Archivo;font-stretch:125%;font-weight:900;font-size:clamp(22px,4vw,32px);line-height:1;margin-bottom:6px}
+h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+.lead{max-width:760px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
+.fact b{display:block;font-family:Archivo;font-stretch:125%;font-weight:900;font-size:24px;line-height:1.1}
+.fact span{font-size:12.5px;color:var(--muted)}
+.sw{display:flex;flex-wrap:wrap;gap:10px}
+.sw div{width:120px;border-radius:10px;overflow:hidden;border:1px solid var(--line);font-size:12px;background:#fff}
+.sw div i{display:block;height:46px}
+.sw div p{padding:6px 8px}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.rules div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13.5px}
+.rules ul{padding-left:18px}
+.video{margin-top:56px;border-top:3px solid var(--ink);padding-top:18px}
+.vhead{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;margin-bottom:6px}
+.tag{font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;color:#fff}
+.meta{color:var(--muted);font-size:13.5px;max-width:820px}
+.frames{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin-top:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.tc{font-size:12px;font-weight:700;color:var(--muted);display:flex;justify-content:space-between}
+.card dl{font-size:12.5px;line-height:1.45}
+.card dt{font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.card dd{margin:0}
+.src{font-size:11.5px;color:var(--muted);margin-top:14px}
+.src a{color:var(--navy)}
+.todo{background:#fff6d6;border:1px solid #ecd27a;border-radius:12px;padding:16px;margin-top:40px}
+.todo li{margin:4px 0 4px 18px}
+
+/* ===== mini frame 9:16 ===== */
+.f{position:relative;aspect-ratio:9/16;border-radius:10px;overflow:hidden;container-type:inline-size;background:var(--cream);color:var(--ink)}
+.f .d{font-family:Archivo;font-stretch:125%;font-weight:900;line-height:.9;letter-spacing:-.01em}
+.f .u{font-family:Sora;font-weight:600}
+.f .abs{position:absolute}
+.f .k{font-size:6cqw}
+.f .s{position:absolute;left:6cqw;right:6cqw;bottom:4cqw;font-size:3.6cqw;opacity:.75;font-family:Sora}
+.f .slab{display:inline-block;padding:2cqw 4cqw;transform:rotate(-6deg)}
+.f .bar4{position:absolute;left:0;right:0;height:3cqw;display:flex}
+.f .bar4 i{flex:1}.f .bar4 i:nth-child(1){background:var(--green)}.f .bar4 i:nth-child(2){background:var(--orange)}.f .bar4 i:nth-child(3){background:var(--blue)}.f .bar4 i:nth-child(4){background:var(--yellow)}
+.bg-red{background:var(--red)!important;color:#fff!important}
+.bg-blue{background:var(--blue)!important;color:#fff!important}
+.bg-yellow{background:var(--yellow)!important}
+.bg-green{background:var(--green)!important;color:#fff!important}
+.bg-cream{background:var(--cream)!important}
+.dots{display:grid;gap:1cqw}
+.dots i{display:block;aspect-ratio:1;border-radius:50%}
+.wk{display:grid;grid-template-columns:repeat(7,1fr);gap:1.5cqw}
+.wk div{aspect-ratio:1/2.4;border-radius:2cqw;display:flex;align-items:flex-end;justify-content:center;font-family:Sora;font-weight:700;font-size:4cqw;padding-bottom:2cqw;color:#fff}
+.chk{display:flex;gap:3cqw;align-items:flex-start;font-family:Sora;font-weight:700;font-size:5cqw;line-height:1.15;margin-bottom:3.5cqw}
+.chk b{flex:none;width:7cqw;height:7cqw;border-radius:2cqw;background:var(--green);color:#fff;display:grid;place-items:center;font-size:5cqw}
+.chk.off b{background:#fff;border:.8cqw solid var(--ink)}
+.chk.off{opacity:.45}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="stripe"><i></i><i></i><i></i><i></i></div>
+  <h1>Storyboard · 6 motions<br>para o 2º turno</h1>
+  <p class="lead">Seis vídeos verticais (9:16, 1080×1920) de até 60 segundos, para quem não votou ou votou branco/nulo no 1º turno. São só tipografia e formas, sem foto ou voz de nenhum candidato e sem ataques. Cada quadro abaixo é um <i>beat</i> do vídeo; o que está desenhado é a composição-chave do beat.</p>
+
+  <h3>Base de dados (1º turno, 04/10/2026)</h3>
+  <div class="facts">
+    <div class="fact"><b>33.469.244</b><span>abstenções, 21,08% do eleitorado. TSE, via Agência Brasil.</span></div>
+    <div class="fact"><b>2.224.965</b><span>diferença entre 1º e 2º colocados: 56.104.503 − 53.879.538 votos. TSE, 100% das urnas, via Reuters.</span></div>
+    <div class="fact"><b>15×</b><span>33.469.244 ÷ 2.224.965 = 15,04. A abstenção foi 15 vezes a diferença.</span></div>
+    <div class="fact"><b>~6 milhões</b><span>votos brancos (1,84%) e nulos (2,93%) sobre cerca de 125 milhões de comparecimentos. Valor aproximado.</span></div>
+  </div>
+
+  <h3>Identidade (extraída do Programa de Governo)</h3>
+  <div class="sw">
+    <div><i style="background:#E82028"></i><p><b>#E82028</b><br>vermelho logo</p></div>
+    <div><i style="background:#CF4A24"></i><p><b>#CF4A24</b><br>laranja</p></div>
+    <div><i style="background:#546BE3"></i><p><b>#546BE3</b><br>azul</p></div>
+    <div><i style="background:#F2C740"></i><p><b>#F2C740</b><br>amarelo</p></div>
+    <div><i style="background:#52943B"></i><p><b>#52943B</b><br>verde</p></div>
+    <div><i style="background:#F5F1E8"></i><p><b>#F5F1E8</b><br>fundo creme</p></div>
+  </div>
+  <p class="meta" style="margin-top:10px">O PDF usa <b>Transducer Black</b> nos títulos e <b>Gotham/Sora</b> no texto. Transducer e Gotham são fontes pagas, então o vídeo usa <b>Archivo Expanded Black</b> (gratuita e de desenho bem parecido) nos títulos e <b>Sora</b> (a mesma do PDF) no texto. Os blocos inclinados em −6° imitam o lettering “LULA PRESIDENTE”, e a faixa de 4 cores é a assinatura de todo fim de vídeo.</p>
+
+  <h3>Regras de produção (do prompt “Motion studio rules” da sua imagem)</h3>
+  <div class="rules">
+    <div><b>Render</b><ul><li>O vídeo é uma função pura do tempo: <code>window.seek(t)</code> pinta o quadro.</li><li>Sem transições CSS, <code>setTimeout</code> ou <code>requestAnimationFrame</code> no render; ruído só com semente (mulberry32).</li><li>Saída H.264 yuv420p, CRF 16.</li></ul></div>
+    <div><b>Look</b><ul><li>Proibido: título centralizado sobre gradiente, tudo surgindo em fade, rótulos de canto, moldura, brilho, partícula genérica.</li><li>Uma fonte de título e uma de texto.</li><li>Algo novo na tela a cada 2–4s.</li><li>Exceção do brief: paleta de 4 cores. O vermelho é o acento, e as outras cores entram como fundo de bloco.</li></ul></div>
+    <div><b>Som e loop de qualidade</b><ul><li>Trilha e efeitos sintetizados em código, nos tempos do <code>beats.json</code>, mixados em −14 LUFS.</li><li>Antes do render final: uma folha de contato com 1 quadro por beat e nota de 1 a 10 em gancho (2s iniciais), leitura no celular, movimento, variedade, marca e sincronia.</li><li>Corrigir os 3 piores pontos e repetir até todas as notas serem 8 ou mais.</li></ul><p class="src">A imagem estava cortada na borda direita; essas regras são a parte que dava para ler.</p></div>
+  </div>
+
+  <div id="videos"></div>
+
+  <div class="todo">
+    <h2>Para aprovar</h2>
+    <ol>
+      <li><b>Voz:</b> sua própria voz ou uma voz sintética neutra? Nunca a voz de um candidato.</li>
+      <li><b>Assinatura:</b> sugiro colocar “Conteúdo independente de apoiador” no rodapé do quadro final, para não parecer peça oficial da campanha.</li>
+      <li><b>Brancos e nulos:</b> o vídeo 2 usa “cerca de 6 milhões”. Se você tiver o número final do TSE, troco pelo exato.</li>
+      <li><b>Selo do 13:</b> o quadro final usa “VOTE LULA 13” em blocos inclinados <i>inspirados</i> na identidade, sem copiar o logo oficial. Aprova assim?</li>
+    </ol>
+  </div>
+</div>
+
+<script>
+const B4 = (pos='bottom:0') => `<div class="bar4" style="${pos}"><i></i><i></i><i></i><i></i></div>`;
+const CTA = (top, date='25 OUT · 2º TURNO') => `
+  <div class="abs u k" style="left:7cqw;top:12cqw;width:86cqw;font-size:6.5cqw;line-height:1.15">${top}</div>
+  <div class="abs" style="left:4cqw;top:62cqw"><span class="d slab" style="background:var(--blue);color:#fff;font-size:11cqw">VOTE</span></div>
+  <div class="abs" style="left:10cqw;top:80cqw"><span class="d slab" style="background:var(--red);color:#fff;font-size:21cqw">LULA</span></div>
+  <div class="abs" style="left:55cqw;top:110cqw"><span class="d slab" style="background:var(--yellow);color:var(--ink);font-size:17cqw">13</span></div>
+  <div class="abs u" style="left:7cqw;top:140cqw;font-size:5.4cqw">${date}</div>
+  <div class="s" style="bottom:7cqw;opacity:.6">Conteúdo independente de apoiador · fontes na legenda</div>
+  ${B4('bottom:0')}`;
+const dots = (n, cols, color, extra='') => `<div class="dots" style="grid-template-columns:repeat(${cols},1fr)">${Array.from({length:n},(_,i)=>`<i style="background:${typeof color==='function'?color(i):color}"></i>`).join('')}</div>${extra}`;
+const week = (cells) => `<div class="wk">${cells.map(([l,c])=>`<div style="background:${c}">${l}</div>`).join('')}</div>`;
+
+const V = [
+{n:1, day:'Dia 1', color:'var(--red)', title:'Você era maior que a diferença', who:'Para quem não foi votar',
+ idea:'Uma comparação de escala: o tamanho da abstenção contra o tamanho da diferença. O número sozinho convence; o tom é de quem chama, não de quem dá bronca.',
+ frames:[
+ {t:'0–2s', cls:'bg-red', v:`<div class="abs d" style="left:5cqw;top:40cqw;font-size:15.5cqw">33.469<br>.244</div><div class="abs u" style="left:6cqw;top:80cqw;font-size:6cqw;width:80cqw">pessoas não foram votar no domingo.</div><div class="s">TSE · 1º turno 04/10/2026</div>`,
+  tela:'O número entra dígito a dígito, girando como caça-níquel com 40ms entre dígitos. Aterrissa no beat 1 com um “thump”.', vo:'“Domingo, trinta e três milhões de brasileiros não foram votar.”'},
+ {t:'2–8s', cls:'bg-cream', v:`<div class="abs u" style="left:7cqw;top:14cqw;font-size:5.5cqw">Diferença entre<br>1º e 2º colocados</div>
+   <div class="abs" style="left:7cqw;top:52cqw;width:80cqw;height:9cqw;background:var(--navy)"></div><div class="abs u" style="left:7cqw;top:63cqw;font-size:4cqw">1º · 56.104.503</div>
+   <div class="abs" style="left:7cqw;top:76cqw;width:76.8cqw;height:9cqw;background:var(--blue)"></div><div class="abs u" style="left:7cqw;top:87cqw;font-size:4cqw">2º · 53.879.538</div>
+   <div class="abs" style="left:83.8cqw;top:46cqw;width:3.2cqw;height:42cqw;background:var(--red)"></div>
+   <div class="abs d" style="left:7cqw;top:104cqw;font-size:12cqw;color:var(--red)">2.224.965</div><div class="s">TSE · 100% das urnas</div>`,
+  tela:'Duas barras crescem da esquerda, sem nomes nem fotos (só “1º” e “2º”). Um traço vermelho marca a sobra entre elas e o número da diferença sobe de baixo.', vo:'“Sabe qual foi a diferença entre o primeiro e o segundo colocado? Dois milhões e duzentos mil votos.”'},
+ {t:'8–16s', cls:'bg-cream', v:`<div class="abs u" style="left:7cqw;top:10cqw;font-size:4.6cqw">1 ponto = 100 mil pessoas</div><div class="abs" style="left:7cqw;right:7cqw;top:22cqw">${dots(336,16,i=>i<22?'var(--red)':'var(--blue)')}</div><div class="s">22 pontos vermelhos = diferença · 335 azuis = abstenção</div>`,
+  tela:'Aparecem 22 pontos vermelhos (a diferença). Depois a grade explode em 335 pontos azuis (a abstenção), em ondas no ritmo da música.', vo:'“Agora olha quem ficou em casa: quinze vezes mais gente do que essa diferença.”'},
+ {t:'16–24s', cls:'bg-yellow', v:`<div class="abs" style="left:2cqw;top:30cqw"><span class="d slab" style="background:var(--red);color:#fff;font-size:42cqw;padding:0 4cqw">15×</span></div><div class="abs u" style="left:7cqw;top:92cqw;font-size:6.4cqw;width:84cqw;line-height:1.2">maior que a diferença que decidiu o 1º turno.</div><div class="s">33.469.244 ÷ 2.224.965 = 15,04</div>`,
+  tela:'Um bloco vermelho “15×” entra girando de −20° para −6°, com um pequeno tremor de câmera no impacto. A frase de apoio é escrita palavra a palavra.', vo:'“Quem não votou tinha força pra decidir essa eleição. E deixou outros decidirem.”'},
+ {t:'24–36s', cls:'bg-cream', v:`<div class="abs d" style="left:7cqw;top:20cqw;font-size:10cqw;width:88cqw">Não precisa amar ninguém.</div><div class="abs d" style="left:7cqw;top:68cqw;font-size:10cqw;width:88cqw;color:var(--red)">Precisa não deixar escolherem por você.</div>`,
+  tela:'Tipografia batida: cada palavra cai em um beat. A segunda frase troca para vermelho no último “você”.', vo:'“Você não precisa amar candidato nenhum. Mas ficar em casa não é neutro: deixa outros escolherem seu salário, seu emprego, o futuro da sua família.”'},
+ {t:'36–50s', cls:'bg-blue', v:`<div class="abs d" style="left:6cqw;top:24cqw;font-size:34cqw;line-height:.82">25<br><span style="color:var(--yellow)">OUT</span></div><div class="abs u" style="left:7cqw;top:96cqw;font-size:5.6cqw;line-height:1.3">domingo · 2º turno<br>8h às 17h (Brasília)</div>`,
+  tela:'Uma folha de calendário vira (flip 3D) e revela “25 OUT”. A linha de horário desliza para dentro.', vo:'“Dia vinte e cinco de outubro tem segundo turno. Dessa vez, a decisão pode ser sua.”'},
+ {t:'50–60s', cls:'bg-cream', v:CTA('Vai votar.'),
+  tela:'Os blocos VOTE, LULA e 13 batem em sequência (3 beats), e a faixa de 4 cores varre da esquerda para a direita. As fontes ficam na legenda do post.', vo:'“Vai votar. Vota Lula, treze.”'}
+ ],
+ src:'TSE (via Agência Brasil e Reuters) e cálculo próprio.'},
+
+{n:2, day:'Dia 2', color:'var(--blue)', title:'Nulo não anula', who:'Para quem votou branco ou nulo',
+ idea:'Desfazer um mito com respeito: o protesto é legítimo, mas na urna ele some. A virada do vídeo é “protesto que funciona é escolher”.',
+ frames:[
+ {t:'0–2s', cls:'bg-blue', v:`<div class="abs d" style="left:7cqw;top:36cqw;font-size:13cqw;width:88cqw">Votou nulo pra protestar?</div>`,
+  tela:'A pergunta aparece em três golpes, um por beat, com o cursor de digitação de uma urna (bip).', vo:'“Votou nulo ou branco pra protestar? Tenho uma notícia.”'},
+ {t:'2–8s', cls:'bg-cream', v:`<div class="abs" style="left:4cqw;top:44cqw"><span class="d slab" style="background:var(--ink);color:#fff;font-size:24cqw">NULO</span></div><div class="abs d" style="left:7cqw;top:96cqw;font-size:8cqw;color:var(--red)">não anula eleição.</div><div class="s">TRE-MG · Código Eleitoral</div>`,
+  tela:'O bloco “NULO” racha ao meio e as metades caem para fora do quadro com gravidade simulada (seed fixa).', vo:'“Branco e nulo não anulam eleição. Isso é mito.”'},
+ {t:'8–18s', cls:'bg-cream', v:`<div class="abs" style="left:10cqw;right:10cqw;top:70cqw;height:42cqw;border:1.4cqw solid var(--green);border-top:none;border-radius:0 0 4cqw 4cqw"></div><div class="abs u" style="left:10cqw;right:10cqw;top:100cqw;text-align:center;font-size:5cqw;color:var(--green)">VOTOS VÁLIDOS</div>
+   <div class="abs" style="left:24cqw;top:30cqw;width:14cqw;height:18cqw;background:var(--blue);border-radius:1.5cqw"></div><div class="abs" style="left:46cqw;top:44cqw;width:14cqw;height:18cqw;background:var(--red);border-radius:1.5cqw"></div>
+   <div class="abs u" style="left:66cqw;top:18cqw;padding:2cqw 3cqw;background:#ccc;border-radius:1.5cqw;font-size:4cqw;transform:rotate(14deg)">branco</div><div class="abs u" style="left:70cqw;top:34cqw;padding:2cqw 3cqw;background:#999;color:#fff;border-radius:1.5cqw;font-size:4cqw;transform:rotate(-10deg)">nulo</div>
+   <div class="abs u" style="left:62cqw;top:52cqw;font-size:4cqw;color:var(--muted)">→ fora da conta</div>`,
+  tela:'Cédulas coloridas caem dentro da caixa “votos válidos”. As cinzas (branco/nulo) quicam na borda e saem do quadro.', vo:'“Eles simplesmente não entram na conta. Quem decide o resultado são só os votos válidos.”'},
+ {t:'18–28s', cls:'bg-yellow', v:`<div class="abs d" style="left:6cqw;top:28cqw;font-size:24cqw;white-space:nowrap">~6 mi</div><div class="abs u" style="left:7cqw;top:56cqw;font-size:6cqw;width:84cqw">de votos brancos e nulos no 1º turno.</div><div class="abs u" style="left:7cqw;top:96cqw;font-size:4.6cqw">1,84% brancos · 2,93% nulos</div><div class="s">TSE · apuração do 1º turno</div>`,
+  tela:'Um contador sobe de 0 a cerca de 6 milhões, com tique de relógio. Os percentuais entram como etiqueta.', vo:'“No primeiro turno, foram cerca de seis milhões de votos que não contaram pra ninguém.”'},
+ {t:'28–42s', cls:'bg-cream', v:`<div class="abs d" style="left:7cqw;top:24cqw;font-size:10.5cqw;width:86cqw">Protesto que ninguém conta…</div><div class="abs d" style="left:7cqw;top:78cqw;font-size:10.5cqw;width:86cqw;color:var(--red)">ninguém escuta.</div>`,
+  tela:'A primeira linha é escrita e o “…” pulsa. A segunda linha bate em vermelho, e a primeira fica cinza (perde contraste).', vo:'“Seu recado não chegou a lugar nenhum. Ninguém leu, ninguém contou.”'},
+ {t:'42–52s', cls:'bg-red', v:`<div class="abs u" style="left:7cqw;top:22cqw;font-size:6cqw">No 2º turno,</div><div class="abs d" style="left:7cqw;top:36cqw;font-size:12.5cqw;width:88cqw">protesto que funciona é escolher.</div>`,
+  tela:'Wipe diagonal em vermelho, seguindo o ângulo de −6° da marca. A frase entra em 4 batidas.', vo:'“No segundo turno, o protesto que funciona é escolher quem protege seus direitos.”'},
+ {t:'52–60s', cls:'bg-cream', v:CTA('Seu voto conta. Faz ele contar.'), tela:'Assinatura padrão.', vo:'“Dia vinte e cinco, vota Lula, treze.”'}
+ ],
+ src:'TRE-MG (“votos nulos e brancos não anulam a eleição”) e TSE (percentuais).'},
+
+{n:3, day:'Dia 3', color:'var(--orange)', title:'Quanto vale o seu domingo?', who:'Para trabalhadores, principalmente na escala 6x1',
+ idea:'A pauta mais concreta e popular. É só proposta positiva, sem comparar com ninguém.',
+ frames:[
+ {t:'0–2s', cls:'bg-cream', v:`<div class="abs" style="left:6cqw;right:6cqw;top:30cqw">${week([['S','var(--orange)'],['T','var(--orange)'],['Q','var(--orange)'],['Q','var(--orange)'],['S','var(--orange)'],['S','var(--orange)'],['D','var(--yellow)']])}</div><div class="abs d" style="left:7cqw;top:96cqw;font-size:9.5cqw;width:86cqw">6 dias de trabalho. <span style="color:var(--green)">1 de vida.</span></div>`,
+  tela:'Seis colunas laranja batem uma por beat (ritmo de ponto batido) e a sétima acende em amarelo.', vo:'“Seis dias de trabalho. Um de vida.”'},
+ {t:'2–10s', cls:'bg-orange', v:`<div class="abs d" style="left:5cqw;top:30cqw;font-size:36cqw;color:#fff">44h</div><div class="abs u" style="left:7cqw;top:86cqw;font-size:6cqw;color:#fff;width:84cqw">por semana. É o limite de hoje.</div>`,
+  tela:'O número “44h” é desenhado como relógio de ponto, com o ponteiro girando e o som de tique sincronizado.', vo:'“Hoje a jornada pode chegar a quarenta e quatro horas por semana.”'},
+ {t:'10–20s', cls:'bg-cream', v:`<div class="abs d" style="left:6cqw;top:22cqw;font-size:22cqw;color:#bbb;text-decoration:line-through;text-decoration-color:var(--red)">44h</div><div class="abs d" style="left:6cqw;top:48cqw;font-size:34cqw;color:var(--green)">40h</div><div class="abs u" style="left:7cqw;top:96cqw;font-size:5.4cqw;width:84cqw">Câmara aprovou em maio: 40h e 2 dias de descanso. <b>Falta o Senado.</b></div><div class="s">Câmara dos Deputados · maio/2026</div>`,
+  tela:'O “44” se transforma em “40” por interpolação dos contornos do número, e a cor vai de laranja para verde.', vo:'“Em maio, a Câmara aprovou reduzir pra quarenta horas, com dois dias de descanso. Agora falta o Senado.”'},
+ {t:'20–32s', cls:'bg-blue', v:`<div class="abs u" style="left:7cqw;top:14cqw;font-size:4.6cqw;opacity:.8">PROGRAMA DE GOVERNO LULA 2026</div><div class="abs d" style="left:7cqw;top:30cqw;font-size:9.4cqw;width:86cqw;line-height:1">“fim da escala 6x1 e jornada de 40 horas, <span style="color:var(--yellow)">sem redução salarial</span>”</div><div class="s">Programa de Governo, p. 75</div>`,
+  tela:'A citação entra linha a linha e “sem redução salarial” é sublinhado com um traço amarelo.', vo:'“O programa de Lula assume o compromisso: fim da seis por um e quarenta horas, sem reduzir salário.”'},
+ {t:'32–42s', cls:'bg-yellow', v:`<div class="abs d" style="left:5cqw;top:30cqw;font-size:36cqw">69%</div><div class="abs u" style="left:7cqw;top:82cqw;font-size:6cqw;width:84cqw">dos brasileiros apoiam o fim da 6x1.</div><div class="s">Genial/Quaest · julho/2026</div>`,
+  tela:'O 69% sobe como contador, ao lado de uma rosca de 7 em 10 bonequinhos.', vo:'“Sete em cada dez brasileiros querem isso.”'},
+ {t:'42–52s', cls:'bg-cream', v:`<div class="abs" style="left:6cqw;right:6cqw;top:30cqw">${week([['S','var(--orange)'],['T','var(--orange)'],['Q','var(--orange)'],['Q','var(--orange)'],['S','var(--orange)'],['S','var(--green)'],['D','var(--green)']])}</div><div class="abs d" style="left:7cqw;top:96cqw;font-size:9.5cqw;width:86cqw">Seu sábado <span style="color:var(--green)">de volta.</span></div>`,
+  tela:'É a semana do primeiro quadro: a coluna de sábado vira verde de baixo para cima, como copo enchendo.', vo:'“Imagina ter o sábado pra sua família, seus amigos, pra você.”'},
+ {t:'52–60s', cls:'bg-cream', v:CTA('Quer o sábado de volta?'), tela:'Assinatura padrão.', vo:'“Dia vinte e cinco, vota Lula, treze.”'}
+ ],
+ src:'Programa de Governo Lula 2026 (p. 75), Poder360/Estado de Minas (PEC aprovada na Câmara em maio) e Genial/Quaest via Revista Fórum (69%).'},
+
+{n:4, day:'Dia 4', color:'var(--green)', title:'Não precisa amar. Precisa escolher.', who:'Para os desiludidos (“ninguém me representa”)',
+ idea:'Valida o sentimento e muda a pergunta. Mostra uma lista de direitos com fonte, sem citar adversário.',
+ frames:[
+ {t:'0–2s', cls:'bg-cream', v:`<div class="abs d" style="left:7cqw;top:32cqw;font-size:12cqw;width:86cqw">Acha que ninguém te representa?</div>`,
+  tela:'Texto preto em fundo creme, entrando por máscara de baixo para cima linha a linha, sem fade.', vo:'“Acha que ninguém te representa?”'},
+ {t:'2–7s', cls:'bg-cream', v:`<div class="abs" style="left:10cqw;top:52cqw"><span class="d slab" style="background:var(--red);color:#fff;font-size:28cqw">Justo.</span></div>`,
+  tela:'O bloco “Justo.” bate como carimbo e a frase de cima é empurrada para fora.', vo:'“Justo. Muita gente sente isso.”'},
+ {t:'7–14s', cls:'bg-blue', v:`<div class="abs u" style="left:7cqw;top:20cqw;font-size:6cqw">Então troca a pergunta:</div><div class="abs d" style="left:7cqw;top:40cqw;font-size:13cqw;width:86cqw">Quem protege o que é <span style="color:var(--yellow)">seu?</span></div>`,
+  tela:'Um wipe azul atravessa a tela e o “seu?” pulsa uma vez em amarelo.', vo:'“Então troca a pergunta: quem vai proteger o que é seu?”'},
+ {t:'14–44s', cls:'bg-cream', v:`<div class="abs" style="left:7cqw;right:6cqw;top:16cqw">
+   <div class="chk"><b>✓</b>Salário mínimo com aumento real todo ano</div>
+   <div class="chk"><b>✓</b>Isenção de IR para quem ganha até R$ 5 mil</div>
+   <div class="chk"><b>✓</b>Fim da 6x1, 40h sem cortar salário</div>
+   <div class="chk off"><b></b>Igualdade salarial entre mulheres e homens</div>
+   <div class="chk off"><b></b>8 milhões de empregos (2023–jun/26)</div></div><div class="s">Programa de Governo p. 73 e 75 · Agência Senado (IR)</div>`,
+  tela:'Cinco itens, um a cada 6s. O check verde é desenhado como traço e o item fica em negrito. A fonte de cada item aparece no rodapé enquanto ele está ativo.', vo:'“Salário mínimo com aumento acima da inflação. Isenção de imposto de renda até cinco mil reais. Fim da escala seis por um. Salário igual pra mulher e homem. E, segundo o governo, oito milhões de empregos criados desde 2023.”'},
+ {t:'44–52s', cls:'bg-green', v:`<div class="abs d" style="left:7cqw;top:26cqw;font-size:11cqw;width:86cqw">Não é sobre paixão.</div><div class="abs" style="left:4cqw;top:64cqw"><span class="d slab" style="background:var(--yellow);color:var(--ink);font-size:10cqw">É sobre seus direitos.</span></div>`,
+  tela:'A primeira frase fica estática e a segunda entra como bloco amarelo inclinado.', vo:'“Não é sobre paixão. É sobre os seus direitos.”'},
+ {t:'52–60s', cls:'bg-cream', v:CTA('Escolhe o que te protege.'), tela:'Assinatura padrão.', vo:'“Dia vinte e cinco, vota Lula, treze.”'}
+ ],
+ src:'Programa de Governo Lula 2026 (p. 73: salário mínimo e 8,0 mi de empregos; p. 75: 6x1 e igualdade salarial) e Agência Senado (isenção do IR, nov/2025). O dado de 8 milhões de empregos é declaração do programa de governo e vai atribuído como tal.'},
+
+{n:5, day:'Dia 5', color:'var(--yellow)', title:'Cadeira vazia', who:'Para quem não foi votar (versão emocional)',
+ idea:'Metáfora visual, em ilustração plana e geométrica vista de cima e sem pessoas desenhadas: na mesa do Brasil, quem não senta come o que os outros escolhem.',
+ frames:[
+ {t:'0–3s', cls:'bg-cream', v:`<div class="abs" style="left:22cqw;top:40cqw;width:56cqw;height:80cqw;border-radius:8cqw;background:#e6dcc6"></div>
+   <div class="abs" style="left:8cqw;top:50cqw;width:12cqw;height:12cqw;border-radius:3cqw;background:var(--blue)"></div><div class="abs" style="left:8cqw;top:96cqw;width:12cqw;height:12cqw;border-radius:3cqw;background:var(--green)"></div>
+   <div class="abs" style="left:80cqw;top:50cqw;width:12cqw;height:12cqw;border-radius:3cqw;background:var(--orange)"></div><div class="abs" style="left:80cqw;top:96cqw;width:12cqw;height:12cqw;border-radius:3cqw;border:1cqw dashed #999"></div>
+   <div class="abs d" style="left:7cqw;top:10cqw;font-size:8.6cqw;width:86cqw">Tem uma cadeira vazia nessa mesa.</div>`,
+  tela:'Mesa vista de cima. As cadeiras coloridas deslizam até o lugar, e a última fica tracejada e vazia.', vo:'“Tem uma cadeira vazia nessa mesa.”'},
+ {t:'3–12s', cls:'bg-cream', v:`<div class="abs" style="left:22cqw;top:40cqw;width:56cqw;height:80cqw;border-radius:8cqw;background:#e6dcc6"></div>
+   <div class="abs" style="left:30cqw;top:52cqw;width:10cqw;height:10cqw;border-radius:50%;background:#fff;border:1cqw solid var(--blue)"></div><div class="abs" style="left:60cqw;top:52cqw;width:10cqw;height:10cqw;border-radius:50%;background:#fff;border:1cqw solid var(--orange)"></div><div class="abs" style="left:30cqw;top:98cqw;width:10cqw;height:10cqw;border-radius:50%;background:#fff;border:1cqw solid var(--green)"></div><div class="abs" style="left:60cqw;top:98cqw;width:10cqw;height:10cqw;border-radius:50%;background:#fff;border:1cqw dashed #999"></div>
+   <div class="abs u" style="left:7cqw;top:130cqw;font-size:5cqw;width:86cqw">Cada um escolhe o seu prato.</div>`,
+  tela:'Cada cadeira ganha um prato. Pequenas setas saem das cadeiras ocupadas até os próprios pratos.', vo:'“Na mesa onde se decide o futuro do país, cada um escolhe o seu.”'},
+ {t:'12–24s', cls:'bg-cream', v:`<div class="abs" style="left:46cqw;top:40cqw;width:40cqw;height:40cqw;border-radius:50%;background:#fff;border:1.2cqw dashed #999"></div>
+   <div class="abs u" style="left:10cqw;top:30cqw;font-size:4.4cqw;padding:1.5cqw 3cqw;background:var(--blue);color:#fff;border-radius:99px">seu salário</div><div class="abs u" style="left:6cqw;top:50cqw;font-size:4.4cqw;padding:1.5cqw 3cqw;background:var(--orange);color:#fff;border-radius:99px">sua folga</div><div class="abs u" style="left:12cqw;top:70cqw;font-size:4.4cqw;padding:1.5cqw 3cqw;background:var(--green);color:#fff;border-radius:99px">o posto de saúde</div><div class="abs u" style="left:20cqw;top:90cqw;font-size:4.4cqw;padding:1.5cqw 3cqw;background:var(--red);color:#fff;border-radius:99px">a escola do seu filho</div>
+   <div class="abs d" style="left:7cqw;top:118cqw;font-size:7.6cqw;width:86cqw">Quem não senta come o que os outros escolhem.</div>`,
+  tela:'Etiquetas saem das outras cadeiras e voam para o prato vazio, uma por beat, com um “plim” de talher.', vo:'“Quem não senta, come o que os outros escolherem: seu salário, sua folga, o posto de saúde, a escola do seu filho.”'},
+ {t:'24–36s', cls:'bg-red', v:`<div class="abs d" style="left:7cqw;top:24cqw;font-size:11cqw;width:86cqw">Não votar não é ficar de fora.</div><div class="abs" style="left:4cqw;top:80cqw"><span class="d slab" style="background:#fff;color:var(--red);font-size:9cqw">É deixar escolherem por você.</span></div>`,
+  tela:'Um corte seco para vermelho, a frase em 2 tempos.', vo:'“Não votar não é ficar de fora. É deixar escolherem por você.”'},
+ {t:'36–48s', cls:'bg-cream', v:`<div class="abs" style="left:22cqw;top:40cqw;width:56cqw;height:80cqw;border-radius:8cqw;background:#e6dcc6"></div>
+   <div class="abs" style="left:8cqw;top:50cqw;width:12cqw;height:12cqw;border-radius:3cqw;background:var(--blue)"></div><div class="abs" style="left:8cqw;top:96cqw;width:12cqw;height:12cqw;border-radius:3cqw;background:var(--green)"></div><div class="abs" style="left:80cqw;top:50cqw;width:12cqw;height:12cqw;border-radius:3cqw;background:var(--orange)"></div><div class="abs" style="left:80cqw;top:96cqw;width:12cqw;height:12cqw;border-radius:3cqw;background:var(--yellow);box-shadow:0 0 0 1.2cqw var(--ink)"></div>
+   <div class="abs d" style="left:7cqw;top:128cqw;font-size:8cqw;width:86cqw">Ocupa o seu lugar.</div>`,
+  tela:'A cadeira tracejada se preenche de amarelo, com um contorno preto que pulsa uma vez. A mesa toda fica completa.', vo:'“Você não precisa gostar de todo mundo na mesa. Só precisa ocupar o seu lugar.”'},
+ {t:'48–60s', cls:'bg-cream', v:CTA('Senta na mesa.'), tela:'Assinatura padrão.', vo:'“Dia vinte e cinco, vota Lula, treze.”'}
+ ],
+ src:'Sem dados numéricos. É um vídeo de argumento.'},
+
+{n:6, day:'Véspera (24/10)', color:'var(--green)', title:'Dá pra votar, sim', who:'Para todos: tira as barreiras práticas',
+ idea:'Um checklist utilitário, para postar no sábado 24/10. É o vídeo mais compartilhável, porque serve para qualquer pessoa.',
+ frames:[
+ {t:'0–2s', cls:'bg-green', v:`<div class="abs d" style="left:7cqw;top:30cqw;font-size:12cqw;width:86cqw">Faltou no 1º turno?</div><div class="abs" style="left:6cqw;top:76cqw"><span class="d slab" style="background:var(--yellow);color:var(--ink);font-size:18cqw">Ainda dá.</span></div>`,
+  tela:'A pergunta aparece e “Ainda dá.” bate como carimbo amarelo.', vo:'“Faltou no primeiro turno? Ainda dá.”'},
+ {t:'2–12s', cls:'bg-cream', v:`<div class="abs d" style="left:7cqw;top:12cqw;font-size:26cqw;color:var(--green)">1</div><div class="abs d" style="left:7cqw;top:44cqw;font-size:9cqw;width:86cqw">Pode votar no 2º normalmente.</div><div class="abs u" style="left:7cqw;top:88cqw;font-size:5cqw;width:84cqw">Cada turno é uma eleição separada. Justifica o 1º depois, até 3/12.</div><div class="s">TRE-SP · Justificativa eleitoral</div>`,
+  tela:'O número grande desliza da esquerda, o título bate e o texto de apoio é escrito.', vo:'“Quem faltou no primeiro turno pode votar no segundo normalmente. A falta você justifica depois.”'},
+ {t:'12–22s', cls:'bg-cream', v:`<div class="abs d" style="left:7cqw;top:12cqw;font-size:26cqw;color:var(--blue)">2</div><div class="abs d" style="left:7cqw;top:44cqw;font-size:9cqw;width:86cqw">Não sabe onde vota?</div><div class="abs" style="left:24cqw;top:78cqw;width:52cqw;height:60cqw;border-radius:6cqw;border:1.4cqw solid var(--ink);background:#fff"></div><div class="abs u" style="left:30cqw;top:100cqw;font-size:6cqw">e-Título</div>`,
+  tela:'Um celular em traço simples abre o app e mostra “local de votação”. É só ícone desenhado, sem print da interface real.', vo:'“Não sabe onde vota? Abre o e-Título.”'},
+ {t:'22–32s', cls:'bg-cream', v:`<div class="abs d" style="left:7cqw;top:12cqw;font-size:26cqw;color:var(--orange)">3</div><div class="abs d" style="left:7cqw;top:44cqw;font-size:9cqw;width:86cqw">Leva documento com foto.</div><div class="abs" style="left:20cqw;top:84cqw;width:60cqw;height:38cqw;border-radius:3cqw;background:#fff;border:1.2cqw solid var(--ink)"></div><div class="abs" style="left:26cqw;top:91cqw;width:16cqw;height:22cqw;border-radius:2cqw;background:var(--orange)"></div>`,
+  tela:'Um cartão de documento gira em Y e entra em cena.', vo:'“Leva um documento com foto, ou o e-Título com foto.”'},
+ {t:'32–42s', cls:'bg-blue', v:`<div class="abs d" style="left:7cqw;top:12cqw;font-size:26cqw;color:var(--yellow)">4</div><div class="abs d" style="left:7cqw;top:44cqw;font-size:13cqw;width:86cqw">8h às 17h</div><div class="abs u" style="left:7cqw;top:74cqw;font-size:5.4cqw;width:84cqw">horário de Brasília. Em Manaus e Cuiabá, das 7h às 16h.</div><div class="s">TSE · calendário eleitoral 2026</div>`,
+  tela:'Os ponteiros do relógio vão de 8h a 17h em 3 segundos.', vo:'“Das oito às dezessete, horário de Brasília. Quem tá em outro fuso, confere seu horário.”'},
+ {t:'42–50s', cls:'bg-cream', v:`<div class="abs d" style="left:7cqw;top:12cqw;font-size:26cqw;color:var(--red)">5</div><div class="abs d" style="left:7cqw;top:44cqw;font-size:9cqw;width:86cqw">Confere se tem passe livre na sua cidade.</div>`,
+  tela:'Um ônibus em traço atravessa a tela da esquerda para a direita.', vo:'“E confere se a sua cidade tem passe livre no dia da eleição.”'},
+ {t:'50–60s', cls:'bg-cream', v:CTA('Amanhã é o dia.', 'AMANHÃ · 25/10'), tela:'Assinatura padrão.', vo:'“Amanhã, vai votar. Vota Lula, treze.”'}
+ ],
+ src:'TRE-SP (justificativa e prazos), TSE (horário unificado, 8h às 17h de Brasília). O passe livre varia por município e não é afirmado como certo.'}
+];
+
+const el = document.getElementById('videos');
+el.innerHTML = V.map(v=>`
+<section class="video">
+  <div class="vhead"><span class="tag" style="background:${v.color};${v.color.includes('yellow')?'color:#1B1B24':''}">${v.day} · Vídeo ${v.n}</span><h2>${v.title}</h2></div>
+  <p class="meta"><b>${v.who}.</b> ${v.idea}</p>
+  <div class="frames">${v.frames.map(f=>`
+    <div class="card">
+      <div class="tc"><span>${f.t}</span><span>beat</span></div>
+      <div class="f ${f.cls==='bg-orange'?'':f.cls}" style="${f.cls==='bg-orange'?'background:var(--orange);color:#fff':''}">${f.v}</div>
+      <dl><dt>Motion</dt><dd>${f.tela}</dd><dt>Locução</dt><dd>${f.vo}</dd></dl>
+    </div>`).join('')}
+  </div>
+  <p class="src"><b>Fontes:</b> ${v.src}</p>
+</section>`).join('');
+</script>
+</body>
+</html>
